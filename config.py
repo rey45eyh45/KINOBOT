@@ -5,10 +5,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Telegram Bot Configuration
-BOT_TOKEN = os.getenv("bot_token")
+# Railway KATTA HARF ishlatadi, local kichik harf
+BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("bot_token")
 
 # Admin ID
-ADMINS = [int(os.getenv("admin_id", "0"))]
+admin_id_str = os.getenv("ADMIN_ID") or os.getenv("admin_id") or "0"
+ADMINS = [int(admin_id_str)]
 
 # Database fayl nomi
 DATABASE_NAME = "kino_bot.db"
